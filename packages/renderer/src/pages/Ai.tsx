@@ -10,7 +10,7 @@ export default function NewBoard() {
       <DockMenu />
       <Transition>
         <div className="flex flex-col gap-4 text-[20px] p-4">
-          <h1 className="font-editorial text-[24px] text-[var(--text)]">Coming soon</h1>
+          <h1 className="font-editorial text-[24px] text-[var(--text)]">Ai Coming soon</h1>
 
         </div>
       </Transition>
