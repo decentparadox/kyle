@@ -22,6 +22,9 @@ export default /** @type import('electron-builder').Configuration */
     'LICENSE*',
     pkg.main,
     '!node_modules/@app/**',
+    "!**/.vscode",
+    "!**/*.md",
+    "!**/tests",
     ...await getListOfFilesFromEachWorkspace(),
   ],
 });
