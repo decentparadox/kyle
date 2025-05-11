@@ -19,9 +19,6 @@
     "test": "npx playwright test ./tests/e2e.spec.ts",
     "start": "node packages/dev-mode.js",
     "typecheck": "npm run typecheck -ws --if-present",
-    "create-renderer": "cd packages && npm create vite@latest renderer",
-    "integrate-renderer": "npm start --workspace @app/integrate-renderer",
-    "init": "npm run create-renderer && npm run integrate-renderer && npm install",
     "package": "npm run build && electron-builder build --mac --win --publish never --config electron-builder.mjs"
   },
   "devDependencies": {
