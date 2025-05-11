@@ -1,25 +1,29 @@
 import {AppModule} from '../AppModule.js';
 import electronUpdater, {type AppUpdater, type Logger} from 'electron-updater';
-
+import {app} from 'electron';
 type DownloadNotification = Parameters<AppUpdater['checkForUpdatesAndNotify']>[0];
 
 export class AutoUpdater implements AppModule {
 
   readonly #logger: Logger | null;
   readonly #notification: DownloadNotification;
+  readonly #updateServer: string;
 
   constructor(
     {
       logger = null,
       downloadNotification = undefined,
+      updateServer = 'https://api.kyle.decentparadox.me',
     }:
       {
         logger?: Logger | null | undefined,
-        downloadNotification?: DownloadNotification
+        downloadNotification?: DownloadNotification,
+        updateServer?: string
       } = {},
   ) {
     this.#logger = logger;
     this.#notification = downloadNotification;
+    this.#updateServer = updateServer;
   }
 
   async enable(): Promise<void> {
@@ -27,9 +31,12 @@ export class AutoUpdater implements AppModule {
   }
 
   getAutoUpdater(): AppUpdater {
-    // Using destructuring to access autoUpdater due to the CommonJS module of 'electron-updater'.
-    // It is a workaround for ESM compatibility issues, see https://github.com/electron-userland/electron-builder/issues/7976.
     const {autoUpdater} = electronUpdater;
+    
+    // Configure update server URL for Hazel
+    const feedURL = `${this.#updateServer}/update/${process.platform}/${app.getVersion()}`;
+    autoUpdater.setFeedURL(feedURL);
+    
     return autoUpdater;
   }
 

@@ -1,7 +1,7 @@
 {
   "name": "kyle",
   "description": "A simple Storyboard app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "author": {
@@ -21,7 +21,8 @@
     "typecheck": "npm run typecheck -ws --if-present",
     "create-renderer": "cd packages && npm create vite@latest renderer",
     "integrate-renderer": "npm start --workspace @app/integrate-renderer",
-    "init": "npm run create-renderer && npm run integrate-renderer && npm install"
+    "init": "npm run create-renderer && npm run integrate-renderer && npm install",
+    "package": "npm run build && electron-builder build --mac --win --publish never --config electron-builder.mjs"
   },
   "devDependencies": {
     "@npmcli/map-workspaces": "4.0.2",
