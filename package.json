@@ -1,7 +1,7 @@
 {
   "name": "kyle",
   "description": "A simple Storyboard app",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "private": true,
   "type": "module",
   "author": {
