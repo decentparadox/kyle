@@ -43,8 +43,6 @@ class WindowManager implements AppModule {
       transparent: process.platform === 'darwin',
       vibrancy: 'sidebar',
       titleBarOverlay: {
-          color: '#00000000',
-          symbolColor: '#566555' ,
           height: 50,
         },
     });

@@ -3,7 +3,6 @@ import Transition from "../components/Transistion";
 import { Switch } from '../components/ui/switch';
 import { Label } from '../components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { themes } from '../lib/themes';
 
 export default function Settings() {
   const { settings, updateSettings } = useSettings();
@@ -12,17 +11,17 @@ export default function Settings() {
 
       <main className="flex flex-col gap-8 items-center sm:items-center overflow-hidden w-full max-w-2xl">
         <Transition>
-          <div className="flex flex-col gap-6 w-full p-6 bg-[var(--card)] rounded-lg">
+          <div className="flex flex-col gap-6 w-full p-6 rounded-lg">
             <div className="flex items-center justify-between">
-              <h1 className="font-editorial text-2xl text-[var(--text)]">Settings</h1>
+              <h1 className="font-editorial text-2xl">Settings</h1>
             </div>
 
             <div className="space-y-6">
               {/* Theme Settings */}
               <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-[var(--text)]">Appearance</h2>
+                <h2 className="text-lg font-semibold">Appearance</h2>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="dark-mode" className="text-[var(--text)]">Dark Mode</Label>
+                  <Label htmlFor="dark-mode">Dark Mode</Label>
                   <Switch
                     id="dark-mode"
                     checked={settings.isDarkMode}
@@ -31,7 +30,7 @@ export default function Settings() {
                 </div>
 
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="font-size" className="text-[var(--text)]">Font Size</Label>
+                  <Label htmlFor="font-size">Font Size</Label>
                   <Select
                     value={settings.fontSize}
                     onValueChange={(value) => updateSettings({ fontSize: value })}
@@ -46,30 +45,13 @@ export default function Settings() {
                     </SelectContent>
                   </Select>
                 </div>
-
-                <div className="space-y-4">
-                  <h2 className="text-lg font-semibold text-[var(--text)]">Theme</h2>
-                  <div className="flex items-center gap-4">
-                    {themes.map((theme) => (
-                      <button
-                        key={theme.name}
-                        onClick={() => updateSettings({ theme: theme.name })}
-                        className={`w-10 h-10 rounded-full transition-all ${
-                          settings.theme === theme.name ? 'ring-2 ring-offset-2 ring-[var(--text)]' : ''
-                        }`}
-                        style={{ background: theme.colors.primary }}
-                        aria-label={`Select ${theme.name} theme`}
-                      />
-                    ))}
-                  </div>
-                </div>
               </div>
 
               {/* Auto-save Settings */}
               <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-[var(--text)]">Auto-save</h2>
+                <h2 className="text-lg font-semibold">Auto-save</h2>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="auto-save" className="text-[var(--text)]">Auto-save Interval (minutes)</Label>
+                  <Label htmlFor="auto-save">Auto-save Interval (minutes)</Label>
                   <Select
                     value={settings.autoSaveInterval.toString()}
                     onValueChange={(value) => updateSettings({ autoSaveInterval: parseInt(value) })}
@@ -89,9 +71,9 @@ export default function Settings() {
 
               {/* Default Duration */}
               <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-[var(--text)]">Default Duration</h2>
+                <h2 className="text-lg font-semibold">Default Duration</h2>
                 <div className="flex items-center justify-between">
-                  <Label htmlFor="duration" className="text-[var(--text)]">Default Scene Duration</Label>
+                  <Label htmlFor="duration">Default Scene Duration</Label>
                   <Select
                     value={settings.defaultDuration}
                     onValueChange={(value) => updateSettings({ defaultDuration: value })}

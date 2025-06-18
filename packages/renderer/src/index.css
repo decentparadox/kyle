@@ -12,7 +12,6 @@
   background-image: url("../public/bg.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-color: rgba(23,23,23,1)
 }
 
 @font-face {
@@ -25,64 +24,10 @@
 }
 
 :root {
-  --primary: #45723F;
-  --background: #171717;
-  --card: #1a2119;
-  --text: #ADC686;
-  --accent: #637561;
-  --border: rgba(173, 198, 134, 0.1);
-  --ring: rgba(173, 198, 134, 0.3);
-  --input-bg: rgba(69, 114, 63, 0.15);
-  --hover: rgba(69, 114, 63, 0.1);
   --font-size-base: 16px;
-}
-
-.dark {
-  --background: #171717;
-  --foreground: #ffffff;
-}
-
-.light {
-  --background: #ffffff;
-  --foreground: #171717;
 }
 
 /* Add to existing styles */
 body {
   font-size: var(--font-size-base);
-  background-color: var(--background);
-  color: var(--text);
 }
-
-.bg-card {
-  background-color: var(--card);
-}
-
-.text-primary {
-  color: var(--primary);
-}
-
-.bg-primary {
-  background-color: var(--primary);
-}
-
-.border-accent {
-  border-color: var(--accent);
-}
-
-.bg-accent {
-  background-color: var(--accent);
-}
-
-.text-accent {
-  color: var(--accent);
-}
-
-/* Add these utility classes */
-.bg-primary { background-color: var(--primary); }
-.bg-card { background-color: var(--card); }
-.text-primary { color: var(--primary); }
-.text-theme { color: var(--text); }
-.border-theme { border-color: var(--border); }
-.ring-theme { --tw-ring-color: var(--ring); }
-.hover-theme:hover { background-color: var(--hover); }

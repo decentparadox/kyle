@@ -4,7 +4,6 @@ export type Settings = {
   defaultDuration: string;
   sidebarExpanded: boolean;
   fontSize: string;
-  theme: string;
 }; 
 
 export interface Scene {

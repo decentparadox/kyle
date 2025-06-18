@@ -9,18 +9,16 @@ const Input = React.forwardRef<HTMLInputElement, React.ComponentProps<"input">>(
         type={type}
         className={cn(
           "flex h-9 w-full rounded-md",
-          "text-[var(--text)]",
-          "border border-[var(--border)]",
-          "bg-[var(--input-bg)]",
+          "border border-gray-300",
+          "bg-white",
           "px-3 py-1 text-base shadow-sm",
           "transition-colors",
           "file:border-0 file:bg-transparent",
           "file:text-sm file:font-medium",
-          "file:text-[var(--text)]",
-          "placeholder:text-[var(--text)]/50",
+          "placeholder:text-gray-500",
           "focus-visible:outline-none",
           "focus-visible:ring-1",
-          "focus-visible:ring-[var(--ring)]",
+          "focus-visible:ring-blue-500",
           "disabled:cursor-not-allowed",
           "disabled:opacity-50",
           "md:text-sm",
@@ -36,14 +34,13 @@ Input.displayName = "Input"
 
 export const inputStyles = cn(
   "flex h-9 w-full rounded-md",
-  "text-[var(--text)]",
-  "border border-[var(--border)]",
-  "bg-[var(--input-bg)]",
+  "border border-gray-300",
+  "bg-white",
   "px-3 py-1 text-sm",
   "transition-colors",
-  "placeholder:text-[var(--text)]/50",
+  "placeholder:text-gray-500",
   "focus-visible:outline-none focus-visible:ring-1",
-  "focus-visible:ring-[var(--ring)]",
+  "focus-visible:ring-blue-500",
   "disabled:cursor-not-allowed disabled:opacity-50"
 );
 

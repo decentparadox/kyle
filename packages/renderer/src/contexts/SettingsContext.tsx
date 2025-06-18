@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useLocalStorage } from '../hooks/useLocalStorage';
-import { themes } from '../lib/themes';
 
 interface Settings {
   isDarkMode: boolean;
@@ -8,7 +7,6 @@ interface Settings {
   defaultDuration: string;
   sidebarExpanded: boolean;
   fontSize: string;
-  theme: string;
 }
 
 interface SettingsContextType {
@@ -21,8 +19,7 @@ const defaultSettings: Settings = {
   autoSaveInterval: 5,
   defaultDuration: '30s',
   sidebarExpanded: true,
-  fontSize: '16',
-  theme: 'forest'
+  fontSize: '16'
 };
 
 const SettingsContext = createContext<SettingsContextType | undefined>(undefined);
@@ -38,16 +35,6 @@ export function SettingsProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     document.documentElement.classList.toggle('dark', settings.isDarkMode);
   }, [settings.isDarkMode]);
-
-  // Apply theme
-  useEffect(() => {
-    const currentTheme = themes.find(t => t.name === settings.theme)?.colors;
-    if (currentTheme) {
-      Object.entries(currentTheme).forEach(([key, value]) => {
-        document.documentElement.style.setProperty(`--${key}`, value);
-      });
-    }
-  }, [settings.theme]);
 
   return (
     <SettingsContext.Provider value={{ settings, updateSettings }}>
